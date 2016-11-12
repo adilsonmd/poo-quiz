@@ -1,16 +1,48 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html lang="pt-br">
     <head>
-        <title>TODO supply a title</title>
+        <title>Home</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/home.js"></script>
+        
     </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+    
+<body>
+
+    <nav>
+        <div class="container-fluid"></div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-md-7 quiz-desc">
+                <h1>Bem-vindo</h1>
+                <p>Aqui você poderá testar seus conhecimentos.
+                    Uma aplicação que irá te dar maior facilidade
+                    para verificar seu progresso.
+                </p>
+                <form method="POST" action="prova.jsp" id="form">
+                    <div class="form-inline">
+                        <div id="div-danger" class="form-group">
+                            <input id="nm_aluno" class="form-control form-control-lg" type="text" name="nm_aluno" placeholder="Digite seu nome"/>
+                        </div>
+                        <button id="bt_submit" type="submit" class="btn btn-outline-danger btn-lg">Iniciar Teste</button>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container-fluid"></div>
+    </footer>
+
+    
+    <script src="js/bootstrap.min.js"></script>
+</body>
 </html>
