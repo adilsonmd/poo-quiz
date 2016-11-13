@@ -1,6 +1,7 @@
 package com.quiz;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -56,7 +57,7 @@ public class Perguntas {
             teste.add(q9);
             teste.add(q10);
         }
-
+        Collections.shuffle(teste);
         return teste;
     }
 

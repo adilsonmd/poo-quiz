@@ -29,13 +29,13 @@
                 </div>
             </div>
         </nav>
-        <div class="container-fluid">
+        <div class="container">
             
             <div class="row quiz-container">
                 <div class="col-md-8">
                     <h2>Quiz: <%= request.getParameter("nm_aluno")%></h2>
                     
-                    <form method="POST" action="home.jsp">
+                    <form method="GET" action="home.jsp">
                         
                         <% for (Questions q: teste) { %>
                         
@@ -58,10 +58,11 @@
                             <%= q.getAlternativa()[2]%>
                             <br/>
                         </div>
-                            
                         <% questaoAtual++; } %>
-
-                        <button class="btn btn-outline-success" type="submit" name="prova" value="1">Finalizar</button>
+                        <button id="bt_enviar" class="btn btn-outline-success" type="submit" name="prova" value="1" style="display:none;">
+                            Enviar
+                        </button>
+                        
                     </form>
                         <button id="bt_voltar" class="btn btn-default"><</button>
                         <button id="bt_avancar" class="btn btn-default">></button>

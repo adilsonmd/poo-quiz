@@ -20,8 +20,7 @@
             request.getParameter("6"),
             request.getParameter("7"),
             request.getParameter("8"),
-            request.getParameter("9"),
-            request.getParameter("10"),
+            request.getParameter("9")
                 
         };
         Perguntas.validaTeste(resposta);
@@ -51,7 +50,7 @@
                     Uma aplicação que irá te dar maior facilidade
                     para verificar seu progresso.
                 </p>
-                <form method="POST" action="exibirPerguntas.jsp" id="form" autocomplete="off">
+                <form method="GET" action="exibirPerguntas.jsp" id="form" autocomplete="off">
                     <div class="form-inline">
                         <div id="div-danger" class="form-group">
                             <input id="nm_aluno" class="form-control form-control-lg" type="text" name="nm_aluno" placeholder="Digite seu nome"/>

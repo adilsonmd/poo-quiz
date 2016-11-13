@@ -6,9 +6,10 @@ $(document).ready(function() {
     $('#bt_voltar').on('click', function(){
         if(questaoAtual != 0) {
             questaoAtual--;
-            console.log('voltou a questao');
+            if(questaoAtual != 9) {
+               $('#bt_enviar').css('display', 'none');
+            }
             esconderTudo(questaoAtual);
-            console.log("questao atual: "+questaoAtual);
         }
         
         
@@ -16,11 +17,11 @@ $(document).ready(function() {
     $('#bt_avancar').on('click', function(){
         if(questaoAtual != 9) {
             questaoAtual++;
-            console.log('avançou a questao');
-            esconderTudo(questaoAtual);
-            console.log("questao atual: "+questaoAtual);
+            if(questaoAtual == 9) {
+                $('#bt_enviar').css('display', 'block');
+            }
+            esconderTudo(questaoAtual);   
         }
-        
     });
     
     
