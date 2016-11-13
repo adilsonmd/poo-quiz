@@ -36,15 +36,15 @@ public class Perguntas {
             teste = new ArrayList<Questions>();
             Questions q1 = new Questions("Pergunta1", "1", new String[]{"1","2","3"});
            // Questions q1 = new Questions("Pergunta1", "respota", new String[]{"alternativas"});
-            Questions q2 = new Questions("P2", "2", new String[]{"1","2","3"});
-            Questions q3 = new Questions("P3", "3", new String[]{"1","2","3"});
-            Questions q4 = new Questions("P4", "4", new String[]{"4","5","6"});
-            Questions q5 = new Questions("P5", "5", new String[]{"4","5","6"});
-            Questions q6 = new Questions("P6", "6", new String[]{"4","5","6"});
-            Questions q7 = new Questions("P7", "7", new String[]{"7","8","9"});
-            Questions q8 = new Questions("P8", "8", new String[]{"7","8","9"});
-            Questions q9 = new Questions("P9", "9", new String[]{"7","8","9"});
-            Questions q10 = new Questions("P10", "10", new String[]{"10","11","12"});
+            Questions q2 = new Questions("Pergunta2", "2", new String[]{"1","2","3"});
+            Questions q3 = new Questions("Pergunta3", "3", new String[]{"1","2","3"});
+            Questions q4 = new Questions("Pergunta4", "4", new String[]{"4","5","6"});
+            Questions q5 = new Questions("Pergunta5", "5", new String[]{"4","5","6"});
+            Questions q6 = new Questions("Pergunta6", "6", new String[]{"4","5","6"});
+            Questions q7 = new Questions("Pergunta7", "7", new String[]{"7","8","9"});
+            Questions q8 = new Questions("Pergunta8", "8", new String[]{"7","8","9"});
+            Questions q9 = new Questions("Pergunta9", "9", new String[]{"7","8","9"});
+            Questions q10 = new Questions("Pergunta10", "10", new String[]{"10","11","12"});
             
             teste.add(q1);
             teste.add(q2);

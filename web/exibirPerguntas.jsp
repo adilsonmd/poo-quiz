@@ -16,6 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/perguntas.css"/>
         <script src="js/jquery.min.js"></script>
     </head>
     <body>
@@ -35,13 +36,15 @@
                 <div class="col-md-8">
                     <h2>Quiz: <%= request.getParameter("nm_aluno")%></h2>
                     
-                    <form method="POST" action="home.jsp">
+                    <form method="GET" action="home.jsp">
                         
                         <% for (Questions q: teste) { %>
                         
                             <div class="pergunta" id="q<%= teste.indexOf(q)%>" style="display: none;">
                             <br/>
-                            <h3><%= q.getPergunta()%></h3>
+                            <div class="questao"> <%= questaoAtual+1 %>. </div>
+                            <h3><%= q.getPergunta()%>
+                                </h3>
                             <input type="radio"
                                    name="<%= teste.indexOf(q)%>"
                                    value="<%= q.getAlternativa()[0]%>"/>
@@ -61,10 +64,10 @@
                             
                         <% questaoAtual++; } %>
 
-                        <button class="btn btn-outline-success" type="submit" name="prova" value="1">Finalizar</button>
+                        <button id="bt_enviar" class="btn btn-outline-success" type="submit" name="prova" value="1" style="display:none;">Enviar</button>
                     </form>
-                        <button id="bt_voltar" class="btn btn-default"><</button>
-                        <button id="bt_avancar" class="btn btn-default">></button>
+                        <button id="bt_voltar" class="bt_voltar"><</button>
+                        <button id="bt_avancar" class="bt_avancar">></button>
                 </div>
             </div>
         </div>
