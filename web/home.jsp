@@ -45,13 +45,13 @@
 
     <div class="container">
         <div class="row">
-            <div class="offset-md-2 col-md-7 quiz-desc">
+            <div class="offset-md-2 col-md-8 quiz-desc">
                 <h1>Bem-vindo</h1>
                 <p>Aqui você poderá testar seus conhecimentos.
                     Uma aplicação que irá te dar maior facilidade
                     para verificar seu progresso.
                 </p>
-                <form method="POST" action="exibirPerguntas.jsp" id="form">
+                <form method="POST" action="exibirPerguntas.jsp" id="form" autocomplete="off">
                     <div class="form-inline">
                         <div id="div-danger" class="form-group">
                             <input id="nm_aluno" class="form-control form-control-lg" type="text" name="nm_aluno" placeholder="Digite seu nome"/>

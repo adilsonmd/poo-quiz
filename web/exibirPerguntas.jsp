@@ -19,6 +19,9 @@
         <script src="js/jquery.min.js"></script>
     </head>
     <body>
+        <% ArrayList<Questions> teste = Perguntas.getTeste(); 
+            int questaoAtual = 0;
+        %>
         <nav>
             <div class="navbar navbar-default">
                 <div class="navbar nav">
@@ -26,37 +29,45 @@
                 </div>
             </div>
         </nav>
-        <div class="container quiz-container">
-            <div class="row">
-                <h1>Quiz para <%= request.getParameter("nm_aluno") %></h1>
-                <h2>Tema do Quiz</h2>
-            </div>
-
-            <div class="row">
-                <form method="POST" action="home.jsp">
-                    <% ArrayList<Questions> teste = Perguntas.getTeste(); %>
-                    <% for (Questions q: teste) { %>
-                    <h3><%= q.getPergunta()%></h3>
-                    <input type="radio"
-                           name="<%= teste.indexOf(q)%>"
-                           value="<%= q.getAlternativa()[0]%>"/>
-                    <%= q.getAlternativa()[0]%>
-
-                    <input type="radio"
-                           name="<%= teste.indexOf(q)%>"
-                           value="<%= q.getAlternativa()[1]%>"/>
-                    <%= q.getAlternativa()[1]%>
-
-                    <input type="radio"
-                           name="<%= teste.indexOf(q)%>"
-                           value="<%= q.getAlternativa()[2]%>"/>
-                    <%= q.getAlternativa()[2]%>
-                    <br/>
-                    <% } %>
+        <div class="container-fluid">
+            
+            <div class="row quiz-container">
+                <div class="col-md-8">
+                    <h2>Quiz: <%= request.getParameter("nm_aluno")%></h2>
                     
-                    <button class="btn btn-outline-success" type="submit" name="prova" value="1">Finalizar</button>
-                </form>
+                    <form method="POST" action="home.jsp">
+                        
+                        <% for (Questions q: teste) { %>
+                        
+                            <div class="pergunta" id="q<%= teste.indexOf(q)%>" style="display: none;">
+                            <br/>
+                            <h3><%= q.getPergunta()%></h3>
+                            <input type="radio"
+                                   name="<%= teste.indexOf(q)%>"
+                                   value="<%= q.getAlternativa()[0]%>"/>
+                            <%= q.getAlternativa()[0]%>
+                            <br/>
+                            <input type="radio"
+                                   name="<%= teste.indexOf(q)%>"
+                                   value="<%= q.getAlternativa()[1]%>"/>
+                            <%= q.getAlternativa()[1]%>
+                            <br/>
+                            <input type="radio"
+                                   name="<%= teste.indexOf(q)%>"
+                                   value="<%= q.getAlternativa()[2]%>"/>
+                            <%= q.getAlternativa()[2]%>
+                            <br/>
+                        </div>
+                            
+                        <% questaoAtual++; } %>
+
+                        <button class="btn btn-outline-success" type="submit" name="prova" value="1">Finalizar</button>
+                    </form>
+                        <button id="bt_voltar" class="btn btn-default"><</button>
+                        <button id="bt_avancar" class="btn btn-default">></button>
+                </div>
             </div>
         </div>
+        <script src="js/main.js"></script>
     </body>
 </html>
