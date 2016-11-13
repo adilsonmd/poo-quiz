@@ -14,7 +14,7 @@ public class Perguntas {
     private static int contador =0;
     private static ArrayList<Questions> teste;
     
-     public static double validaTeste(String[] resposta) {
+    public static double validaTeste(String[] resposta) {
         int corrects = 0;
         for (int i = 0; i < teste.size(); i++) {
             Questions q = teste.get(i);
@@ -32,7 +32,7 @@ public class Perguntas {
 
     public static ArrayList<Questions> getTeste() {
         if (teste == null) {
-            teste = new ArrayList<>();
+            teste = new ArrayList<Questions>();
             Questions q1 = new Questions("Pergunta1", "1", new String[]{"1","2","3"});
            // Questions q1 = new Questions("Pergunta1", "respota", new String[]{"alternativas"});
             Questions q2 = new Questions("P2", "2", new String[]{"1","2","3"});
@@ -83,6 +83,4 @@ public class Perguntas {
     public static void setContador(int contador) {
         Perguntas.contador = contador;
     }
-
- 
 }

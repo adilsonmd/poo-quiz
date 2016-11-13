@@ -26,16 +26,16 @@
                 </div>
             </div>
         </nav>
-        <div class="container quiz">
+        <div class="container quiz-container">
             <div class="row">
-                <h1>Quiz</h1>
+                <h1>Quiz para <%= request.getParameter("nm_aluno") %></h1>
                 <h2>Tema do Quiz</h2>
             </div>
 
             <div class="row">
-                <form action="home.jsp">
+                <form method="POST" action="home.jsp">
                     <% ArrayList<Questions> teste = Perguntas.getTeste(); %>
-                    <% for (Questions q: teste) {%>
+                    <% for (Questions q: teste) { %>
                     <h3><%= q.getPergunta()%></h3>
                     <input type="radio"
                            name="<%= teste.indexOf(q)%>"
@@ -44,15 +44,16 @@
 
                     <input type="radio"
                            name="<%= teste.indexOf(q)%>"
-                           value="<%= q.getAlternativa()[1]%>"
-                           />
+                           value="<%= q.getAlternativa()[1]%>"/>
                     <%= q.getAlternativa()[1]%>
 
                     <input type="radio"
                            name="<%= teste.indexOf(q)%>"
                            value="<%= q.getAlternativa()[2]%>"/>
                     <%= q.getAlternativa()[2]%>
+                    <br/>
                     <% } %>
+                    
                     <button class="btn btn-outline-success" type="submit" name="prova" value="1">Finalizar</button>
                 </form>
             </div>
