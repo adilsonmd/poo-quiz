@@ -10,10 +10,7 @@ $(document).ready(function() {
                 $('#bt_enviar').css('display','none');
             }
             esconderTudo(questaoAtual);
-        }
-        
-        
-        
+        }    
     });
     $('#bt_avancar').on('click', function(){
         if(questaoAtual != 9) {
@@ -23,31 +20,31 @@ $(document).ready(function() {
             }
             esconderTudo(questaoAtual);
         }
-        
     });
-    
-    
+    $('#bt_abandonar').on('click', function(event){
+       $(location).attr('href','home.jsp');
+    });
 });
 
 function esconderTudo(quest){
-        for(i = 0; i<=9; i++) {
-            if(i==quest) {
-                $('#q'+i).css('display', 'block');
-                console.log('display');
-            }
-            else {
-                $('#q'+i).css('display', 'none');
-                console.log('none');
-            }
+    for(i = 0; i<=9; i++) {
+        if(i==quest) {
+            $('#q'+i).css('display', 'block');
+            console.log('display');
         }
-        // $('q1').css('display', 'none');
-        // $('q2').css('display', 'none');
-        // $('q3').css('display', 'none');
-        // $('q4').css('display', 'none');
-        // $('q5').css('display', 'none');
-        // $('q6').css('display', 'none');
-        // $('q7').css('display', 'none');
-        // $('q8').css('display', 'none');
-        // $('q9').css('display', 'none');
-        // $('q10').css('display', 'none');
+        else {
+            $('#q'+i).css('display', 'none');
+            console.log('none');
+        }
     }
+    // $('q1').css('display', 'none');
+    // $('q2').css('display', 'none');
+    // $('q3').css('display', 'none');
+    // $('q4').css('display', 'none');
+    // $('q5').css('display', 'none');
+    // $('q6').css('display', 'none');
+    // $('q7').css('display', 'none');
+    // $('q8').css('display', 'none');
+    // $('q9').css('display', 'none');
+    // $('q10').css('display', 'none');
+}

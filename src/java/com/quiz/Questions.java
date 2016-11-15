@@ -40,4 +40,9 @@ public class Questions {
         this.alternativa = alternativa;
     }
     
+    public void limparTudo() {
+        this.alternativa = null;
+        this.pergunta = null;
+        this.resposta = null;
+    }
 }

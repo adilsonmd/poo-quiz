@@ -4,12 +4,13 @@
     Author     : Beto
 --%>
 
+<%@page import="com.quiz.Aluno"%>
 <%@page import="com.quiz.Perguntas"%>
 <%@page import="com.quiz.Questions"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    if (request.getParameter("userTest")!=null){ //Pegando os dados da pagina exibirPerguntas
+    if (request.getParameter("prova")!=null){ //Pegando os dados da pagina exibirPerguntas
         String resposta[] = {
             request.getParameter("0"),
             request.getParameter("1"),
@@ -20,8 +21,7 @@
             request.getParameter("6"),
             request.getParameter("7"),
             request.getParameter("8"),
-            request.getParameter("9"),
-            request.getParameter("10"),
+            request.getParameter("9")
                 
         };
         Perguntas.validaTeste(resposta);
@@ -34,6 +34,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="css/home.css"/>
         <script src="js/jquery.min.js"></script>
         <script src="js/home.js"></script>
     </head>
@@ -44,6 +45,7 @@
     </nav>
 
     <div class="container">
+        <% if(request.getParameter("prova") == null) { %>
         <div class="row">
             <div class="offset-md-2 col-md-8 quiz-desc">
                 <h1>Bem-vindo</h1>
@@ -62,13 +64,25 @@
                 
             </div>
         </div>
+        <% } %>
+        
         <% if(request.getParameter("prova") != null) { %>
         <div class="row">
-            <div class="offset-md-2 col-md-7 estatistica">
-                <h3>Ultima nota: <%= Perguntas.getResAnterior()+ "%"%></h3>
+            <div class="offset-md-2 col-md-8 estatistica">
+                <h2>Porcentagem de acertos de <%= Aluno.getNome() %> </h2><hr>
+                <div class="esquerda">
+                <h3>Última prova: <%= Perguntas.getResAnterior()+ "%"%></h3>
+
+                </div>
                 <br/>
-                <h3>Média: <%= Perguntas.getResAtual()+"%" %></h3>
+                <div class="direita">
+                <h3>Média: <%= Perguntas.calculaMedia()+"%" %></h3>
+                </div>
                 
+                <div class="botoes">
+                <button class="btn btn-outline-danger">Sair</button>
+                <button class="btn btn-outline-success">Fazer novamente</button>
+                </div>
             </div>
         </div>
         <% } %>

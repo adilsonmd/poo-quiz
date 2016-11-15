@@ -11,8 +11,8 @@ import java.util.Collections;
 public class Perguntas {
     
     private static double resAnterior = 0.0;
-    private static double resAtual = 0.0;
-    private static int contador =0;
+    private static double resTotal = 0.0;
+    private static int contador = 0;
     private static ArrayList<Questions> teste;
     
     public static double validaTeste(String[] resposta) {
@@ -25,10 +25,16 @@ public class Perguntas {
         }
         double grade = 100.0 * (double) corrects / (double) teste.size();
         contador++;
-        resAtual += grade;
+        resTotal += grade;
         resAnterior = grade;
 
         return grade;
+    }
+    
+    public static double calculaMedia() {
+        double media = 0.0;
+        media = resTotal / contador;
+        return media;
     }
 
     public static ArrayList<Questions> getTeste() {
@@ -70,11 +76,11 @@ public class Perguntas {
     }
 
     public static double getResAtual() {
-        return resAtual;
+        return resTotal;
     }
 
-    public static void setResAtual(double resAtual) {
-        Perguntas.resAtual = resAtual;
+    public static void setResAtual(double resTotal) {
+        Perguntas.resTotal = resTotal;
     }
 
     public static int getContador() {
@@ -83,5 +89,13 @@ public class Perguntas {
 
     public static void setContador(int contador) {
         Perguntas.contador = contador;
+    }
+    
+    public static void limparTudo() {
+        Perguntas.contador = 0;
+        Perguntas.resAnterior = 0;
+        Perguntas.resTotal = 0;
+        Perguntas.teste = null;
+        
     }
 }

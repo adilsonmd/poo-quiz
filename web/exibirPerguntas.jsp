@@ -4,6 +4,7 @@
     Author     : Beto
 --%>
 
+<%@page import="com.quiz.Aluno"%>
 <%@page import="com.quiz.Perguntas"%>
 <%@page import="com.quiz.Questions"%>
 <%@page import="java.util.ArrayList"%>
@@ -18,9 +19,13 @@
         <link rel="stylesheet" href="css/main.css"/>
         <link rel="stylesheet" href="css/perguntas.css"/>
         <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        <% ArrayList<Questions> teste = Perguntas.getTeste(); 
+        <% 
+            Aluno.setNome(request.getParameter("nm_aluno"));
+            
+            ArrayList<Questions> teste = Perguntas.getTeste(); 
             int questaoAtual = 0;
         %>
         <nav>
@@ -30,16 +35,21 @@
                 </div>
             </div>
         </nav>
-        <div class="container-fluid">
+        <div class="container">
             
             <div class="row quiz-container">
                 <div class="col-md-8">
-                    <h2>Quiz: <%= request.getParameter("nm_aluno")%></h2>
+                    <span class="titulo-quiz">
+                        <h2>Quiz: <%= Aluno.getNome() %></h2>
+                        <a type="button" class="text-muted" id="link_abandonar" data-toggle="modal" data-target="#pop-abandonar">
+                            Abandonar
+                        </a>
+                        <%@include file="popup-abandonar.html" %>
+                    </span>
                     
                     <form method="GET" action="home.jsp">
                         
                         <% for (Questions q: teste) { %>
-                        
                             <div class="pergunta" id="q<%= teste.indexOf(q)%>" style="display: none;">
                             <br/>
                             <div class="questao"> <%= questaoAtual+1 %>. </div>
@@ -61,13 +71,18 @@
                             <%= q.getAlternativa()[2]%>
                             <br/>
                         </div>
-                            
                         <% questaoAtual++; } %>
 
-                        <button id="bt_enviar" class="btn btn-outline-success" type="submit" name="prova" value="1" style="display:none;">Enviar</button>
+                        <!-- BOTÃO DE ENVIAR PROVA / SO APARECE NA ULTIMA QUESTAO -->
+                        <button id="bt_enviar" class="btn btn-outline-success" type="submit" name="prova" value="1" style="display:none;">
+                            Enviar
+                        </button>
                     </form>
-                        <button id="bt_voltar" class="bt_voltar"><</button>
-                        <button id="bt_avancar" class="bt_avancar">></button>
+                        
+                    <!-- BOTÕES DE NAVEGAÇÃO -->
+                    <button id="bt_voltar" class="bt_voltar"><</button>
+                    <button id="bt_avancar" class="bt_avancar">></button>
+                        
                 </div>
             </div>
         </div>
