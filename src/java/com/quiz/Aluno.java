@@ -33,5 +33,10 @@ public class Aluno {
         Aluno.notaAnterior = notaAnterior;
     }
 
+    public static void limparTudo() {
+        Aluno.nome = null;
+        Aluno.media = 0.0;
+        Aluno.notaAnterior = 0.0;
+    }
     
 }

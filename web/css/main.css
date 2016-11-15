@@ -22,3 +22,8 @@ body {
     float: right;
     cursor: pointer;
 }
+.botoes {
+    width: 100%;
+    display: inline-block;
+    float: left;
+}

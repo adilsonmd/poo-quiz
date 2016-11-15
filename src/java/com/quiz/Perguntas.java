@@ -34,23 +34,42 @@ public class Perguntas {
     public static double calculaMedia() {
         double media = 0.0;
         media = resTotal / contador;
+        
         return media;
     }
 
     public static ArrayList<Questions> getTeste() {
         if (teste == null) {
             teste = new ArrayList<Questions>();
-            Questions q1 = new Questions("Pergunta1", "1", new String[]{"1","2","3"});
-           // Questions q1 = new Questions("Pergunta1", "respota", new String[]{"alternativas"});
-            Questions q2 = new Questions("Pergunta2", "2", new String[]{"1","2","3"});
-            Questions q3 = new Questions("Pergunta3", "3", new String[]{"1","2","3"});
-            Questions q4 = new Questions("Pergunta4", "4", new String[]{"4","5","6"});
-            Questions q5 = new Questions("Pergunta5", "5", new String[]{"4","5","6"});
-            Questions q6 = new Questions("Pergunta6", "6", new String[]{"4","5","6"});
-            Questions q7 = new Questions("Pergunta7", "7", new String[]{"7","8","9"});
-            Questions q8 = new Questions("Pergunta8", "8", new String[]{"7","8","9"});
-            Questions q9 = new Questions("Pergunta9", "9", new String[]{"7","8","9"});
-            Questions q10 = new Questions("Pergunta10", "10", new String[]{"10","11","12"});
+            Questions q1 = new Questions("Pokémon: O que Ash pega emprestado de Misty quando a conheceu?",
+                                        "Bicicleta", new String[]{"Patins","Skate","Bicicleta"});
+           
+            Questions q2 = new Questions("Harry Potter: O total de relíquias da morte são: ",
+                                        "3", new String[]{"3","2","4"});
+
+            Questions q3 = new Questions("Cavaleiros do Zódiaco: Qual o nome do cavaleiro da 6° casa do santuário?",
+                                        "Shaka", new String[]{"Aioria","Dohko","Shaka"});
+            
+            Questions q4 = new Questions("Qual o nome da joia apresentada em Doutor Estranho?",
+                                        "Olho de Agamotto", new String[]{"Olho de Tandera","Olho de Agamotto","Olho do milênio"});
+            
+            Questions q5 = new Questions("Dragonball Z: Segundo Vegeta o poder de luta do Kakarotto é mais de: ",
+                                        "8.000", new String[]{"8.000","9.000","800"});
+            
+            Questions q6 = new Questions("Yu-Gi-Oh: Qual dessas reliquias pertence ao Yugi?",
+                                        "Enigma do Milênio", new String[]{"Olho do Milênio","Enigma do Milênio","Colar do Milênio"});
+            
+            Questions q7 = new Questions("No filme De Volta para o Futuro Parte 2, Marty viaja para qual ano?",
+                                        "2015", new String[]{"2016","2014","2015"});
+            
+            Questions q8 = new Questions("Qual o nome da Inteligência Artificial no filme Exterminador do Futuro?",
+                                        "Skynet", new String[]{"Skynet","NetSky","TipoNet"});
+            
+            Questions q9 = new Questions("O meme \"Faz o urro\" pertence a qual filme de Shrek?",
+                                        "4°", new String[]{"3°","2°","4°"});
+            
+            Questions q10 = new Questions("Qual o nome da mãe de Bruce Wayne?",
+                                        "Martha", new String[]{"Maggie","Martha","Diana"});
             
             teste.add(q1);
             teste.add(q2);

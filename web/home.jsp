@@ -25,11 +25,13 @@
                 
         };
         Perguntas.validaTeste(resposta);
+        Aluno.setMedia(Perguntas.calculaMedia());
+        Aluno.setNotaAnterior(Perguntas.getResAnterior());
     }  
 %>
 <html>
     <head>
-        <title>Home</title>
+        <title>Quiz - Página inicial</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
@@ -53,7 +55,7 @@
                     Uma aplicação que irá te dar maior facilidade
                     para verificar seu progresso.
                 </p>
-                <form method="POST" action="exibirPerguntas.jsp" id="form" autocomplete="off">
+                <form method="POST" action="prova.jsp" id="form" autocomplete="off">
                     <div class="form-inline">
                         <div id="div-danger" class="form-group">
                             <input id="nm_aluno" class="form-control form-control-lg" type="text" name="nm_aluno" placeholder="Digite seu nome"/>
@@ -71,17 +73,25 @@
             <div class="offset-md-2 col-md-8 estatistica">
                 <h2>Porcentagem de acertos de <%= Aluno.getNome() %> </h2><hr>
                 <div class="esquerda">
-                <h3>Última prova: <%= Perguntas.getResAnterior()+ "%"%></h3>
+                <h3>Última prova: <%= Aluno.getNotaAnterior()+"%"%></h3>
 
                 </div>
                 <br/>
                 <div class="direita">
-                <h3>Média: <%= Perguntas.calculaMedia()+"%" %></h3>
+                <h3>Média: <%= Aluno.getMedia()+"%" %></h3>
                 </div>
                 
                 <div class="botoes">
-                <button class="btn btn-outline-danger">Sair</button>
-                <button class="btn btn-outline-success">Fazer novamente</button>
+                    <form method="POST">
+                        <button type="submit" class="btn btn-outline-danger" name="sair" value="1">Sair</button>
+                        <% if(request.getParameter("sair") != null) {
+                            Aluno.limparTudo();
+                            Perguntas.limparTudo();
+                            response.sendRedirect(request.getRequestURI());
+                        }%>
+                        <a class="btn btn-outline-success" href="prova.jsp">Fazer novamente</a>
+                    </form>
+                    
                 </div>
             </div>
         </div>
