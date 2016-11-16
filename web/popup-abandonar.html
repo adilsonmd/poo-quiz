@@ -12,8 +12,10 @@
             </div>
             
             <div class="modal-body">
-                <button id="bt_abandonar" type="button" class="btn btn-danger">Sim</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Nao</button>
+                <form method="GET" action="home.jsp">
+                    <button id="bt_abandonar" type="submit" class="btn btn-danger" name="sair" value="1">Sim</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Nao</button>
+                </form>
             </div>
             
         </div><!-- /.modal-content -->

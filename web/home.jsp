@@ -9,8 +9,13 @@
 <%@page import="com.quiz.Questions"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%
-    if (request.getParameter("prova")!=null){ //Pegando os dados da pagina exibirPerguntas
+
+    <% if(request.getParameter("sair") != null) {
+        Aluno.limparTudo();
+        Perguntas.limparTudo();
+        response.sendRedirect(request.getRequestURI());
+    }
+    if (request.getParameter("prova") != null){ //Pegando os dados da pagina exibirPerguntas
         String resposta[] = {
             request.getParameter("0"),
             request.getParameter("1"),
@@ -74,7 +79,7 @@
                 <h2>Porcentagem de acertos de <%= Aluno.getNome() %> </h2><hr>
                 <div class="esquerda">
                 <h3>Última prova: <%= Aluno.getNotaAnterior()+"%"%></h3>
-
+                <h3>Prova feita <%= Perguntas.getContador() %> vezes</h3>
                 </div>
                 <br/>
                 <div class="direita">
@@ -83,15 +88,9 @@
                 
                 <div class="botoes">
                     <form method="POST">
-                        <button type="submit" class="btn btn-outline-danger" name="sair" value="1">Sair</button>
-                        <% if(request.getParameter("sair") != null) {
-                            Aluno.limparTudo();
-                            Perguntas.limparTudo();
-                            response.sendRedirect(request.getRequestURI());
-                        }%>
+                        <button type="submit" class="btn btn-outline-danger" name="sair" value="1">Sair</button>    
                         <a class="btn btn-outline-success" href="prova.jsp">Fazer novamente</a>
                     </form>
-                    
                 </div>
             </div>
         </div>

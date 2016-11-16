@@ -23,18 +23,13 @@
     </head>
     <body>
         <% 
-            Aluno.setNome(request.getParameter("nm_aluno"));
-            
+            if(Aluno.getNome() == null || Aluno.getNome().equals("")){
+                Aluno.setNome(request.getParameter("nm_aluno"));
+            }
             ArrayList<Questions> teste = Perguntas.getTeste(); 
             int questaoAtual = 0;
         %>
-        <nav>
-            <div class="navbar navbar-default">
-                <div class="navbar nav">
-                    <a class="navbar-brand" href="home.jsp">Home</a>
-                </div>
-            </div>
-        </nav>
+
         <div class="container">
             
             <div class="row quiz-container">
@@ -50,26 +45,35 @@
                     <form method="POST" action="home.jsp">
                         
                         <% for (Questions q: teste) { %>
-                            <div class="pergunta" id="q<%= teste.indexOf(q)%>" style="display: none;">
+                        <div class="pergunta" id="q<%= teste.indexOf(q)%>" style="display: none;">
                             <br/>
                             <div class="questao">  
                                 <h3><%= questaoAtual+1 + ". " + q.getPergunta()%></h3>
                             </div>
-                            <input type="radio"
-                                   name="<%= teste.indexOf(q)%>"
-                                   value="<%= q.getAlternativa()[0]%>"/>
-                            <%= q.getAlternativa()[0]%>
-                            <br/>
-                            <input type="radio"
-                                   name="<%= teste.indexOf(q)%>"
-                                   value="<%= q.getAlternativa()[1]%>"/>
-                            <%= q.getAlternativa()[1]%>
-                            <br/>
-                            <input type="radio"
-                                   name="<%= teste.indexOf(q)%>"
-                                   value="<%= q.getAlternativa()[2]%>"/>
-                            <%= q.getAlternativa()[2]%>
-                            <br/>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio"
+                                         name="<%= teste.indexOf(q)%>" 
+                                         value="<%= q.getAlternativa()[0]%>">
+                                  <%= q.getAlternativa()[0]%>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio"
+                                         name="<%= teste.indexOf(q)%>" 
+                                         value="<%= q.getAlternativa()[1]%>">
+                                  <%= q.getAlternativa()[1]%>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="radio"
+                                         name="<%= teste.indexOf(q)%>" 
+                                         value="<%= q.getAlternativa()[2]%>">
+                                  <%= q.getAlternativa()[2]%>
+                                </label>
+                            </div>
                         </div>
                         <% questaoAtual++; } %>
 
@@ -80,8 +84,10 @@
                     </form>
                         
                     <!-- BOTÕES DE NAVEGAÇÃO -->
-                    <button id="bt_voltar" class="bt_voltar"><</button>
-                    <button id="bt_avancar" class="bt_avancar">></button>
+                    <div class="botoes-navagacao">
+                        <button id="bt_voltar" class="bt_voltar"><</button>
+                        <button id="bt_avancar" class="bt_avancar">></button>
+                    </div>
                         
                 </div>
             </div>

@@ -10,6 +10,10 @@ body {
     margin-bottom: 40px;
 }
 
+.quiz-container {
+    margin-top: 100px;
+}
+
 #bt_enviar {
     float: right;
 }
@@ -26,4 +30,7 @@ body {
     width: 100%;
     display: inline-block;
     float: left;
+}
+.botoes-navagacao {
+    margin-top: 25px;
 }
